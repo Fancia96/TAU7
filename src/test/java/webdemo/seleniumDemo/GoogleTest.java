@@ -25,6 +25,7 @@ public class GoogleTest {
 		System.setProperty("webdriver.msedge.driver", "resources/msedgedriver");
 		EdgeOptions options=new EdgeOptions();
 		options.addArguments("headless");
+		options.addArguments("--lang=en");
 		driver = new EdgeDriver(options);
 		// Implicity wait -> max czas na znalezienie elementu na stronie
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -42,7 +43,9 @@ public class GoogleTest {
 
 	@Test
 	public void testTitlePage() {
-    	assertEquals("DuckDuckGo — Prywatność — jeszcze prostsza.", driver.getTitle());
+
+		assertEquals("DuckDuckGo — Privacy, simplified.", driver.getTitle());
+    	//assertEquals("DuckDuckGo — Prywatność — jeszcze prostsza.", driver.getTitle());
 	}
 
 	@Test
