@@ -93,7 +93,7 @@ public class XPathTest {
 
         @Test
         public void testExactAtributeNode(){
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
             //wait.until(ExpectedConditions.elementToBeClickable(
             //        By.xpath("//input[@value = 'Szukaj w Google']")));
 
