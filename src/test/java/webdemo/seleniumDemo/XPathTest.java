@@ -10,7 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -90,6 +93,12 @@ public class XPathTest {
 
         @Test
         public void testExactAtributeNode(){
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            //wait.until(ExpectedConditions.elementToBeClickable(
+            //        By.xpath("//input[@value = 'Szukaj w Google']")));
+
+            //ExpectedConditions.elementToBeClickable()
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//input[@value = 'Szukaj w Google']")));
             WebElement element = driver.findElement(By.xpath("//input[@value = 'Szukaj w Google']"));
             System.out.println(element.getAttribute("value"));
             assertNotNull(element);
