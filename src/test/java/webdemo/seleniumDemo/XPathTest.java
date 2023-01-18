@@ -31,6 +31,8 @@ public class XPathTest {
             EdgeOptions options=new EdgeOptions();
             //options.addArguments("headless");
             options.addArguments("--lang=pl");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
             driver = new EdgeDriver(options);
             // Implicity wait -> max czas na znalezienie elementu na stronie
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
