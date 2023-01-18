@@ -30,7 +30,7 @@ public class XPathTest {
             System.setProperty("webdriver.msedge.driver", "resources/msedgedriver");
             EdgeOptions options=new EdgeOptions();
             //options.addArguments("headless");
-            options.addArguments("--lang=en");
+            options.addArguments("--lang=pl");
             driver = new EdgeDriver(options);
             // Implicity wait -> max czas na znalezienie elementu na stronie
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -94,13 +94,13 @@ public class XPathTest {
 
         @Test
         public void testExactAtributeNode(){
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+            ///WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
             //wait.until(ExpectedConditions.elementToBeClickable(
             //        By.xpath("//input[@value = 'Szukaj w Google']")));
 
             //ExpectedConditions.elementToBeClickable()
-            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//input[@value = 'Szukaj w Google']")));
-            WebElement element = driver.findElement(By.xpath("//input[@value = 'Search in Google']"));
+            //wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//input[@value = 'Szukaj w Google']")));
+            WebElement element = driver.findElement(By.xpath("//input[@value = 'Szukaj w Google']"));
             System.out.println(element.getAttribute("value"));
             assertNotNull(element);
         }
