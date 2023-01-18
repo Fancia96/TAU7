@@ -29,7 +29,8 @@ public class XPathTest {
         public static void setUpDriver(){
             System.setProperty("webdriver.msedge.driver", "resources/msedgedriver");
             EdgeOptions options=new EdgeOptions();
-            options.addArguments("headless");
+            //options.addArguments("headless");
+            options.addArguments("--lang=en");
             driver = new EdgeDriver(options);
             // Implicity wait -> max czas na znalezienie elementu na stronie
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -37,7 +38,7 @@ public class XPathTest {
 
         @BeforeEach
         public void setUp() throws Exception {
-            driver.get("https://www.google.pl");
+            driver.get("https://www.google.com");
         }
 
         @AfterAll
@@ -99,7 +100,7 @@ public class XPathTest {
 
             //ExpectedConditions.elementToBeClickable()
             wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//input[@value = 'Szukaj w Google']")));
-            WebElement element = driver.findElement(By.xpath("//input[@value = 'Szukaj w Google']"));
+            WebElement element = driver.findElement(By.xpath("//input[@value = 'Search in Google']"));
             System.out.println(element.getAttribute("value"));
             assertNotNull(element);
         }
